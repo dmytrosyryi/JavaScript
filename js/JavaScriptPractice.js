@@ -57,7 +57,7 @@ function detectPeronalLevel(){
 }
 detectPeronalLevel();
 
-function C(hidden){
+function (hidden){
     if(!hidden){
         console.log(personalMovieDB);
     }

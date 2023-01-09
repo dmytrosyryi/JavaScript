@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1) Напишите функцию showFamily, которая будет принимать в себя массив строк и возвращать сообщение в нужном формате.
+
+    showFamily(family)  => 'Семья состоит из: Peter Ann Alex Linda'
+    
+    Имена подставляются автоматически из массива. Если массив пустой, то выводится сообщение 'Семья пуста' -->
+
+<script>
+const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+
+function showFamily(arr){
+    let str = '';
+    arr.lenght === 0 ? str = `Семья пуста`: str = `Семья состоит из: `;
+    arr.forEach(names => {
+        str += `${names }` 
+    });
+    console.log(str);
+    return str;  
+}
+showFamily(family);
+    </script>
+
+
+<!-- // напишите функцию standardizeStrings, которая будет принимать в себя массив строк и будет выводить в консоль эти строки в нижнем регистре.
+
+// Пример:
+
+// standardizeStrings(favoriteCities)  выведет в консоль
+
+// lisbon
+// rome
+// milan
+// dublin -->
+<script>
+ const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+function standardizeStrings(arr) {
+    for (let value of arr){
+        console.log(value.toLowerCase());
+
+    }    
+}
+standardizeStrings(favoriteCities);
+</script>
+    
+</body>
+</html>
