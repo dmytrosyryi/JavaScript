@@ -6,8 +6,50 @@
 // Должно получиться: [ 10, 20, 'Shopping - done', 40, 'Homework - done' ] -->
 
 
+// Если есть какой-то исходный массив либо другие данные, (покажу на текущем примере) то нужно делать его как дэфолтный. 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters
+function secondTask(data = [5, 10, 'Shopping', 20, 'Homework']) {
+  // Дальше идет какая-то логика и т.д.
+  // ВСЕГДА (!) создавай переменную которая будет возращаться как результат функции
+  // Она будет всегда типа, который мы возвращаем
+  let result = []
 
-function secondTask(){
+  // Почему тут было let i = 1 ??? С нуля же начинаем
+  for (let i = 0; i < data.length; i++) {
+    const item = data[i]
+
+    // Учти, что везде используется уже item
+    if (typeof(item) === "number") {
+      result[i] = item * 2;
+      
+    // Тут у тебя было: else if (typeof(data) === "string"){
+    // Всмысле ты проверяешь data? Ты же изначально сделал его массивом :-D
+    } else if (typeof(item) === "string") {
+      result[i] = ${item} - done!
+    }
+  }
+ 
+  // Очень часто "не работает" у тебя тут. Ты возвращаешь значение, а не выводишь в консоль
+  // 
+  console.log(result);
+  return result;
+}
+
+// Тут вызываем аля с исходными
+secondTask()
+
+// дальше чисто для себя проверить
+secondTask([1, 2, 3, 'CHO-KAK'])
+
+// Кстати  if (typeof(item) === "number") { можно заменить на ->
+// if (typeof item === "number") - Так красивеее
+
+
+// Сделай secondTask___v2, с той же задачей, но используя .map (Если проходил)
+// Если нет, то forEach
+
+
+function secondTask___ШЛВ(){
     const data = [5, 10, 'Shopping', 20, 'Homework'];
     for (let i = 1; i < data.length; i++){
         if (typeof(data) === "number"){
