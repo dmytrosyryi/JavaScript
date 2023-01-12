@@ -30,14 +30,20 @@
          }
      }  -->
 <script>
-    let num = 2;
-    while(num < 16);{
-    num++;
-    if(num % 2 === 0) continue;
-    }else {
-        console.log(num);
+    function secondTask(){
+let num = 2;
+while(num <= 16) {
+    
+    if(num % 2 === 0){
+        num ++;
+        continue;    
+    }else{
+        console.log(num);   
     }
-    num++;    
+    num ++;
+    }
+}
+secondTask();
 </script>
 
 <!-- 5.Заполните массив цифрами от 5 до 10 включительно. Помните, что элементы массива можно сформировать так же, как и обращаться к ним: arr[0] -->
@@ -60,15 +66,15 @@
 Должен получиться точно такой же массив -->
 
 <Script>
-    function firstTask(){ 
+   function firstTask(){ 
     const arr = [3, 5, 8, 16, 20, 23, 50];
     const result = [];
-    for(let i = 0; i = arr.length; i++) {
+    for(let i = 0; i < arr.length; i++) {
     result[i] = arr [i];
     }
-    console.log(result);
-    return result;}
-    firstTask();
+    return result;
+    }
+    console.log(firstTask()); 
 </Script>
 
 
@@ -76,17 +82,22 @@
 Для определения типа данных используйте typeof();
 Должно получиться: [ 10, 20, 'Shopping - done', 40, 'Homework - done' ] -->
 <script>
-    function secondTask(){
+   function secondTask(){
     const data = [5, 10, 'Shopping', 20, 'Homework'];
-    for (let i = 1; i < data.length; i++){
-        if (typeof(data) === "number"){
-            data [i] = data [i]*2;
+    let result = [];
+    for (let i = 0; i < data.length; i++){
+        const item = data [i];
+        if (typeof(item) === "number"){
+            result [i] = item *2;
         }
-     else if (typeof(data) === "string"){
-        return  `${data} - done!`;
+     else if (typeof(item) === "string"){
+        result [i] =  `${item} - done!`;
         }
-    }   
+    } 
+    console.log(result);
+    return result;  
 }
+secondTask();
 </script>
 
 
@@ -97,7 +108,8 @@
     function thirdTask() {
     const data = [5, 10, 'Shopping', 20, 'Homework'];
     const result = [];
-    for(let i = 1; i <= data.lenght; i++)
+    for(let i = 1; i < data.lenght; i++)
+
 
     // И как мне развенуть массив?
     
