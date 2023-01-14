@@ -98,6 +98,24 @@ secondTask();
     return result;  
 }
 secondTask();
+
+// V_2FOR.forEach
+function secondTask(data = [5, 10, 'Shopping', 20, 'Homework']){
+let result = [];
+data.forEach(function( i , item)  {
+    if (typeof(i) === "number"){
+        result[i, item] = i *2;
+    }
+ else if (typeof(i) === "string"){
+    result [i,item] =  `${i} - done!`;
+    } 
+});
+
+console.log(result);
+return result;
+}
+secondTask();
+
 </script>
 
 
@@ -108,7 +126,7 @@ secondTask();
     function thirdTask() {
     const data = [5, 10, 'Shopping', 20, 'Homework'];
     const result = [];
-    for(let i = 1; i < data.lenght; i++)
+    for(let i = 0; i < data.lenght; i++)
 
 
     // И как мне развенуть массив?
@@ -120,3 +138,5 @@ secondTask();
 
 
 </html>
+
+
