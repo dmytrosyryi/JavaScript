@@ -1,4 +1,6 @@
-'use strict';
+"use strict";
+
+
 
 
 // <!-- // 4) Представьте такую реальную ситуацию. У вас есть банкомат, который выдает деньги из двух разных банков в разных валютах. Один банк основной с базовыми валютами, второй дополнительный с прочими валютами:
@@ -50,7 +52,7 @@ function showFamily(arr){
     let str = '';
     arr.lenght === 0 ? str = `Семья пуста`: str = `Семья состоит из: `;
     arr.forEach(names => {
-        str += `${names }` 
+        str += `${names }`;
     });
     console.log(str);
     return str;  
@@ -255,3 +257,8 @@ function isBudgetEnough(data) {
 }
 isBudgetEnough(shoppingMallData);
 
+
+
+
+
+ 
