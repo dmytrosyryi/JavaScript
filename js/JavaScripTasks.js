@@ -1,8 +1,5 @@
 "use strict";
 
-
-
-
 // <!-- // 4) Представьте такую реальную ситуацию. У вас есть банкомат, который выдает деньги из двух разных банков в разных валютах. Один банк основной с базовыми валютами, второй дополнительный с прочими валютами:
 
 // const baseCurrencies = ['USD', 'EUR'];
@@ -25,11 +22,8 @@
 
 // - Данные для первого аргумента должны приходить сразу из двух банков, причем сначала baseCurrencies, потом additionalCurrencies по порядку -->
 
-
-
-
-const baseCurrencies = ['USD', 'EUR'];
-const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+const baseCurrencies = ["USD", "EUR"];
+const additionalCurrencies = ["UAH", "RUB", "CNY"];
 
 /*
 Чесно - ебанутая задача ))))
@@ -39,96 +33,88 @@ const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
 */
 
 function availableCurr_v2(arr = [], missingCurr) {
-    if (!arr.length) {
-        return 'Нет доступных валют'
+  if (!arr.length) {
+    return "Нет доступных валют";
+  }
+
+  let result = "Доступные валюты:\n";
+
+  arr.forEach(function (i, item) {
+    if (i !== missingCurr) {
+      result += `${i}\n`;
     }
-    
-    let result = 'Доступные валюты:\n';
+  });
 
-    arr.forEach(function(i,item) {
-        if (i !== missingCurr) {
-            result += `${i}\n`; 
-        }
-    });
-
-    console.log(result);
-    return result;
+  console.log(result);
+  return result;
 }
 
 function availableCurr(arr, missingCurr) {
-    let result = '';
-    arr.lenght === 0 ?  result = 'Нет доступных валют' : result = 'Доступные валюты:\n';
-    arr.forEach(function(i,item){
-        if(i !== missingCurr){
-            result += `${i}\n`; 
-        }
-    });
-    console.log(result);
-    return result;
+  let result = "";
+  arr.lenght === 0
+    ? (result = "Нет доступных валют")
+    : (result = "Доступные валюты:\n");
+  arr.forEach(function (i, item) {
+    if (i !== missingCurr) {
+      result += `${i}\n`;
+    }
+  });
+  console.log(result);
+  return result;
 }
-availableCurr(['UAH', 'RUB', 'CNY'], 'CNY');
+availableCurr(["UAH", "RUB", "CNY"], "CNY");
 
 // CДЕЛАЛ ПО ЭТОМУ ПРИМЕРУ
 
-const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+const family = ["Peter", "Ann", "Alex", "Linda"];
 
 // Так же и тут. Можешь переделать
-function showFamily(arr){
-    let str = '';
-    arr.lenght === 0 ? str = `Семья пуста`: str = `Семья состоит из: `;
-    arr.forEach(names => {
-        str += `${names }`;
-    });
-    console.log(str);
-    return str;  
+function showFamily(arr) {
+  let str = "";
+  arr.lenght === 0 ? (str = `Семья пуста`) : (str = `Семья состоит из: `);
+  arr.forEach((names) => {
+    str += `${names}`;
+  });
+  console.log(str);
+  return str;
 }
 showFamily(family);
-
-
 
 // <!-- 2.Измените данный массив так, чтобы все числа были увеличены в 2 раза, а если попадается строка строка - то к ней было добавлено " - done".
 // Для определения типа данных используйте typeof();
 // Должно получиться: [ 10, 20, 'Shopping - done', 40, 'Homework - done' ] -->
 
-   function secondTask(){
-    const data = [5, 10, 'Shopping', 20, 'Homework'];
-    let result = [];
-    for (let i = 0; i < data.length; i++){
-        const item = data [i];
-        if (typeof(item) === "number"){
-            result [i] = item *2;
-        }
-     else if (typeof(item) === "string"){
-        result [i] =  `${item} - done!`;
-        }
-    } 
-    console.log(result);
-    return result;  
-}
-secondTask();
-
-   //   V_2
-function secondTask(data = [5, 10, 'Shopping', 20, 'Homework']){
-let result = [];
-data.forEach(function( i , item)  {
-    if (typeof(i) === "number"){
-        result[i, item] = i *2;
+function secondTask() {
+  const data = [5, 10, "Shopping", 20, "Homework"];
+  let result = [];
+  for (let i = 0; i < data.length; i++) {
+    const item = data[i];
+    if (typeof item === "number") {
+      result[i] = item * 2;
+    } else if (typeof item === "string") {
+      result[i] = `${item} - done!`;
     }
- else if (typeof(i) === "string"){
-    result [i,item] =  `${i} - done!`;
-    } 
-});
-
-console.log(result);
-return result;
+  }
+  console.log(result);
+  return result;
 }
 secondTask();
 
+//   V_2
+function secondTask(data = [5, 10, "Shopping", 20, "Homework"]) {
+  let result = [];
+  data.forEach(function (i, item) {
+    if (typeof i === "number") {
+      result[(i, item)] = i * 2;
+    } else if (typeof i === "string") {
+      result[(i, item)] = `${i} - done!`;
+    }
+  });
 
-
-
-
-
+  console.log(result);
+  return result;
+}
+secondTask();
 
 // 1) Создайте функцию, которая принимает в себя целое число минут и возвращает время в нужном формате строки. (Смотри пример). Обратите внимание на окончание слова "час" - оно меняется в зависимости от цифры. Если вместо аргумента приходит не число, дробное или отрицательное число - функция возвращает строку "Ошибка, проверьте данные"
 
@@ -144,22 +130,16 @@ secondTask();
 
 // getTimeFromMinutes(-150) => "Ошибка, проверьте данные"
 
-
 function getTimeFromMinutes(time) {
-    let result = '';
-    if (typeof(time)!== 'number' || time < 0 || !Number.isInteger(time)){
-        result = "Ошибка, проверьте данные";
-    }
-    // ХЗ ЧТО ДЕЛАТЬ ДАЛЬШЕ
-console.log (result);
-return result;
+  let result = "";
+  if (typeof time !== "number" || time < 0 || !Number.isInteger(time)) {
+    result = "Ошибка, проверьте данные";
+  }
+  // ХЗ ЧТО ДЕЛАТЬ ДАЛЬШЕ
+  console.log(result);
+  return result;
 }
 getTimeFromMinutes(2.3);
-
-
-
-
-
 
 // 2) Напишите функцию, которая принимает в себя 4 числа и возвращает самое большее из них. Если один из аргументов не является числом или их меньше 4 - возвращается 0. Дробные числа разрешены.
 
@@ -171,46 +151,38 @@ getTimeFromMinutes(2.3);
 
 // У этой задачи есть очень много вариантов решения, в том числе и встроенное в JS. Подходит любое :)
 
-
-
-
-
 // CНАЧАЛО СДЕЛАЛ ТАК НО РАБОТАЛО НЕ ПРАВИЛЬНО
 
-function findMaxNumber(a,b,c,d) {
-    let result = '';
-    if(typeof (a,b,c,d) !== 'number' ){
-        result = '0';
-    }else{
-        result = Math.max(a,b,c,d);
-    }
-    console.log(result);
-    return result;
-
+function findMaxNumber(a, b, c, d) {
+  let result = "";
+  if (typeof (a, b, c, d) !== "number") {
+    result = "0";
+  } else {
+    result = Math.max(a, b, c, d);
+  }
+  console.log(result);
+  return result;
 }
-findMaxNumber('1','2','6',4);
+findMaxNumber("1", "2", "6", 4);
 
-
-function findMaxNumber(a,b,c,d) {
-    let result = '';
-    if(typeof (a !== 'number' ||
-               b !== 'number' ||
-               c !== 'number' ||
-               d !== 'number' )){
-        result = '0';
-    }else{
-        result = Math.max(a,b,c,d);
-    }
-    console.log(result);
-    return result;
-
+function findMaxNumber(a, b, c, d) {
+  let result = "";
+  if (
+    typeof (
+      a !== "number" ||
+      b !== "number" ||
+      c !== "number" ||
+      d !== "number"
+    )
+  ) {
+    result = "0";
+  } else {
+    result = Math.max(a, b, c, d);
+  }
+  console.log(result);
+  return result;
 }
-findMaxNumber('1','2','6',4);
-
-
-
-
-
+findMaxNumber("1", "2", "6", 4);
 
 // Задача:
 
@@ -230,7 +202,6 @@ findMaxNumber('1','2','6',4);
 
 // - функция должна продолжать работать, даже если изменяется количество магазинов, высота, бюджет или подставляется вообще другой объект.
 
-
 // Я ХОТЕЛ ПОПРОБОВАТЬ ЧЕРЕЗ МЕТОД
 
 // И ЧТО ТО НЕ ПРАВИЛЬНО С  if(data.budget > area * data.moneyPer1m3 ){
@@ -239,51 +210,43 @@ findMaxNumber('1','2','6',4);
 //     result = 'Бюджета недостаточно';
 // }
 
-
-
 const shoppingMallData = {
-    shops: [
-        {
-            width: 10,
-            length: 5
-        },
-        {
-            width: 15,
-            length: 7
-        },
-        {
-            width: 20,
-            length: 5
-        },
-        {
-            width: 8,
-            length: 10
-        }
-    ],
-    height: 5,
-    moneyPer1m3: 30,
-    budget: 50000,
+  shops: [
+    {
+      width: 10,
+      length: 5,
+    },
+    {
+      width: 15,
+      length: 7,
+    },
+    {
+      width: 20,
+      length: 5,
+    },
+    {
+      width: 8,
+      length: 10,
+    },
+  ],
+  height: 5,
+  moneyPer1m3: 30,
+  budget: 50000,
 };
 function isBudgetEnough(data) {
-    let volume = '';
-    let area = '';
-    data.shops.forEach(shop =>{
-        volume += shop.width * shop.length;
-    });
-    area = volume * data.height;
-    let result = '';
-    if(data.budget > area * data.moneyPer1m3 ){
-        result = 'Бюджета достаточно';
-    } else if (data.budget < area * data.moneyPer1m3){
-        result = 'Бюджета недостаточно';
-    }
-    console.log(result);
-    return result;  
+  let volume = "";
+  let area = "";
+  data.shops.forEach((shop) => {
+    volume += shop.width * shop.length;
+  });
+  area = volume * data.height;
+  let result = "";
+  if (data.budget > area * data.moneyPer1m3) {
+    result = "Бюджета достаточно";
+  } else if (data.budget < area * data.moneyPer1m3) {
+    result = "Бюджета недостаточно";
+  }
+  console.log(result);
+  return result;
 }
 isBudgetEnough(shoppingMallData);
-
-
-
-
-
- 
