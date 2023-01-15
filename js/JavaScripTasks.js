@@ -130,6 +130,25 @@ secondTask();
 
 // getTimeFromMinutes(-150) => "Ошибка, проверьте данные"
 
+// Тут так же самое. Если не подходит под условие - сразу возвращая ошибку
+/*
+  if (typeof time !== "number" || time < 0 || !Number.isInteger(time)) {
+    // Сразу верни и все 
+    return "Ошибка, проверьте данные";
+  }
+  
+  Дальше у тебя уже 100% число. Чтобы узнать кол-во часов: 
+  В 1 часе - 60 минут. Т.е. тебе нужно разделить time на 60 и округлить в меньшую сторону.
+  Так у тебя получится полное кол-во часов
+  Для минут - Есть такая штука - узнать отаток от деления: time % 60 - это и будут минуты
+  Это ты уже проходил (https://learn.javascript.ru/operators)
+  Ну и час/часов - там можно заморочиться чтобы было красиво, но ты просто забей
+  
+  let suffix = 'часов';
+  if (hours === 1) suffix = 'час'
+  if ([2, 3, 4].includes(hours)) suffix = 'часа'
+*/
+
 function getTimeFromMinutes(time) {
   let result = "";
   if (typeof time !== "number" || time < 0 || !Number.isInteger(time)) {
@@ -153,6 +172,7 @@ getTimeFromMinutes(2.3);
 
 // CНАЧАЛО СДЕЛАЛ ТАК НО РАБОТАЛО НЕ ПРАВИЛЬНО
 
+// typeof Работает ТОЛЬКО с 1 аргументом
 function findMaxNumber(a, b, c, d) {
   let result = "";
   if (typeof (a, b, c, d) !== "number") {
@@ -165,6 +185,18 @@ function findMaxNumber(a, b, c, d) {
 }
 findMaxNumber("1", "2", "6", 4);
 
+
+/*
+if (
+    typeof a !== "number" || 
+    typeof b !== "number" || 
+    typeof c !== "number" ||
+    typeof d !== "number"
+  ) {
+    // Как писал выше - сразу верни результат
+    return 0
+  }
+*/
 function findMaxNumber(a, b, c, d) {
   let result = "";
   if (
@@ -183,6 +215,7 @@ function findMaxNumber(a, b, c, d) {
   return result;
 }
 findMaxNumber("1", "2", "6", 4);
+findMaxNumber(1, 2, 6, 4);
 
 // Задача:
 
@@ -234,9 +267,14 @@ const shoppingMallData = {
   budget: 50000,
 };
 function isBudgetEnough(data) {
+  // Это должно быть НУЛЕМ
   let volume = "";
   let area = "";
   data.shops.forEach((shop) => {
+    // Тут ты не складуеш цифры, а просто конкатенируешь строку. Попробуй подэбажить это
+    // После .forEach и подобных выводи в консоль что получилось
+    // Чтобы понять что не так.
+    // И как функция будет готова - просто удали их
     volume += shop.width * shop.length;
   });
   area = volume * data.height;
