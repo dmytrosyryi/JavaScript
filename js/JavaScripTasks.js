@@ -31,6 +31,30 @@
 const baseCurrencies = ['USD', 'EUR'];
 const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
 
+/*
+Чесно - ебанутая задача ))))
+Все норм. Почти ВСЕГДА в функции есть условие, которое можно еще в самом начале скипнуть:
+
+Пример:
+*/
+
+function availableCurr_v2(arr = [], missingCurr) {
+    if (!arr.length) {
+        return 'Нет доступных валют'
+    }
+    
+    let result = 'Доступные валюты:\n';
+
+    arr.forEach(function(i,item) {
+        if (i !== missingCurr) {
+            result += `${i}\n`; 
+        }
+    });
+
+    console.log(result);
+    return result;
+}
+
 function availableCurr(arr, missingCurr) {
     let result = '';
     arr.lenght === 0 ?  result = 'Нет доступных валют' : result = 'Доступные валюты:\n';
@@ -48,6 +72,7 @@ availableCurr(['UAH', 'RUB', 'CNY'], 'CNY');
 
 const family = ['Peter', 'Ann', 'Alex', 'Linda'];
 
+// Так же и тут. Можешь переделать
 function showFamily(arr){
     let str = '';
     arr.lenght === 0 ? str = `Семья пуста`: str = `Семья состоит из: `;
