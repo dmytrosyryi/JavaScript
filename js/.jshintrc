@@ -11,5 +11,8 @@
 	"devel": true,
 	"jquery": true,
     "esversion": 9,
-    "node": true
+    "node": true,
+	"beautify.onSave": true,
+	"editor.formatOnSave": true
+
 }

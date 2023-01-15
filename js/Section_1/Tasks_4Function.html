@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- 1) Создайте функцию, которая будет вычислять объем и площадь полной поверхности куба (тоже базовая математика, иногда используется в создании анимаций). Эта функция принимает в себя целое число со значением длины ребра куба. Ответ выведите в формате строки, который изображен в примерах.
 
 Если в функцию попал неправильный аргумент или вычислить значения невозможно - вернуть строку "При вычислении произошла ошибка"
@@ -25,22 +25,25 @@ calculateVolumeAndArea('15')  => 'При вычислении произошла
 
 calculateVolumeAndArea(-15)  => 'При вычислении произошла ошибка' -->
 
-<script>
-    function calculateVolumeAndArea(length){
-        if (typeof (length) !== "number" || length < 0 || !Number.isInteger(length)){
-            return 'При вычислении произошла ошибка';}
+    <script>
+      function calculateVolumeAndArea(length) {
+        if (
+          typeof length !== "number" ||
+          length < 0 ||
+          !Number.isInteger(length)
+        ) {
+          return "При вычислении произошла ошибка";
+        }
         let volume = 0,
-            area = 0;
+          area = 0;
         volume = length * length * length;
         area = 6 * (lenght * lenght);
-        return `Объем куба:${volume} , площадь всей поверхности: ${area}`;       
-        
-    }
-calculateVolumeAndArea(5);
-</script>
+        return `Объем куба:${volume} , площадь всей поверхности: ${area}`;
+      }
+      calculateVolumeAndArea(5);
+    </script>
 
-
-<!-- 2.2) Постепенно переходим к более реалистичным задачам :) Вы обнаружите, что там используется все тоже самое.
+    <!-- 2.2) Постепенно переходим к более реалистичным задачам :) Вы обнаружите, что там используется все тоже самое.
 
 Напишите функцию, которая будет определять номер купе по переданному ей номеру места. Наглядно:
 
@@ -71,21 +74,21 @@ getCoupeNumber(-10)  => "Ошибка. Проверьте правильност
 getCoupeNumber('Hello')  => "Ошибка. Проверьте правильность введенного номера места"
 
 Такая функция вполне реальна и может использоваться для формирования билетов, в том числе и визуально на сайтах. Конечно, там будет куда больше условий, но смысл остается таким же. -->
-<script>
-function getCoupeNumber(cupeNumber) {
-    if(typeof(cupeNumber) === !"number" || cupeNumber < 0 || !number.isInteger(cupeNumber)){
-        return `Ошибка. Проверьте правильность введенного номера места`;
-    }
-    if(cupeNumber === 0 || cupeNumber > 36);{
-        return `Таких мест в вагоне не существует`;
-    }
-    return Math.ceil(cupeNumber/4);
-
-}
-</script>
-</body>
+    <script>
+      function getCoupeNumber(cupeNumber) {
+        if (
+          typeof cupeNumber === !"number" ||
+          cupeNumber < 0 ||
+          !number.isInteger(cupeNumber)
+        ) {
+          return `Ошибка. Проверьте правильность введенного номера места`;
+        }
+        if (cupeNumber === 0 || cupeNumber > 36);
+        {
+          return `Таких мест в вагоне не существует`;
+        }
+        return Math.ceil(cupeNumber / 4);
+      }
+    </script>
+  </body>
 </html>
-
-
-
-

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- У вас есть готовый объект с данными. Разработчик Х хочет написать часть функционала, но ему не хватает навыков. Выполните часть заданий за него.
 
 Задачи:
@@ -39,49 +39,43 @@ personalPlanPeter.showAgeAndLangs(personalPlanPeter)
 => 'Мне 29 и я владею языками: RU ENG'
 
 Заметьте, что возраст и языки подставляются автоматически из объекта, а языки всегда в верхнем регистре (большими буквами). Если данные в объекте поменяются, то и сообщение тоже изменится. -->
-<script>
-   const personalPlanPeter = {
-    name: "Peter",
-    age: "29",
-    skills: {
-        languages: ['ru', 'eng'],
-        programmingLangs: {
-            js: '20%',
-            php: '10%'
+    <script>
+      const personalPlanPeter = {
+        name: "Peter",
+        age: "29",
+        skills: {
+          languages: ["ru", "eng"],
+          programmingLangs: {
+            js: "20%",
+            php: "10%",
+          },
+          exp: "1 month",
         },
-        exp: '1 month'
-    },
-    showAgeAndLangs: function(plan){
-        
-        const{age} = plan;
-        const{languages} = plan.skils;
-        let str = `Мне ${age} и я владею языками:`;
-        languages.forEach(function(lang) {
+        showAgeAndLangs: function (plan) {
+          const { age } = plan;
+          const { languages } = plan.skils;
+          let str = `Мне ${age} и я владею языками:`;
+          languages.forEach(function (lang) {
             str += `${lang.toUpperCase()} `;
-        });
+          });
 
+          return str;
+        },
+      };
+
+      function showExperience(plan) {
+        const { exp } = plan.skills;
+        return exp;
+      }
+
+      function showProgrammingLangs(plan) {
+        let str = "";
+        const { programmingLangs } = plan.skills;
+        for (let key in programmingLangs) {
+          str = `Язык ${key} изучен на 20% Язык ${programmingLangs[key]} изучен на 10%"/n`;
+        }
         return str;
-    }
-    
-};
-
-function showExperience(plan) {
-    const {exp} = plan.skills;
-    return exp;    
-}
-
-
-
-function showProgrammingLangs(plan) {
-    let str = "";
-    const{programmingLangs} = plan.skills;
-    for (let key in programmingLangs){
-        str = `Язык ${key} изучен на 20% Язык ${programmingLangs[key]} изучен на 10%"/n`;   
-    }
-    return str;
-}
-    
-</script>
-    
-</body>
+      }
+    </script>
+  </body>
 </html>

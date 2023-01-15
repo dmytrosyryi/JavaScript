@@ -176,7 +176,7 @@ getTimeFromMinutes(2.3);
 function findMaxNumber(a, b, c, d) {
   let result = "";
   if (typeof (a, b, c, d) !== "number") {
-    result = "0";
+    retur "0";
   } else {
     result = Math.max(a, b, c, d);
   }
@@ -184,7 +184,6 @@ function findMaxNumber(a, b, c, d) {
   return result;
 }
 findMaxNumber("1", "2", "6", 4);
-
 
 /*
 if (
