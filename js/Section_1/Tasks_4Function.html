@@ -90,5 +90,35 @@ getCoupeNumber('Hello')  => "Ошибка. Проверьте правильно
         return Math.ceil(cupeNumber / 4);
       }
     </script>
+
+    <!-- 2) Напишите функцию, которая принимает в себя 4 числа и возвращает самое большее из них. Если один из аргументов не является числом или их меньше 4 - возвращается 0. Дробные числа разрешены.
+
+Пример:
+
+findMaxNumber(1, 5, 6.6, 11); =>  11
+
+findMaxNumber(1, 5, '6', '10');  =>  0 -->
+
+    <script>
+      function findMaxNumber(a, b, c, d) {
+        let result = "";
+        if (
+          typeof (
+            a !== "number" ||
+            b !== "number" ||
+            c !== "number" ||
+            d !== "number"
+          )
+        ) {
+          return "0";
+        } else {
+          result = Math.max(a, b, c, d);
+        }
+        console.log(result);
+        return result;
+      }
+      findMaxNumber("1", "2", "6", 4);
+      findMaxNumber(1, 2, 6, 4);
+    </script>
   </body>
 </html>
