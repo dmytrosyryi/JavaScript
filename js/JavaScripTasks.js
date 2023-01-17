@@ -33,6 +33,41 @@
   if ([2, 3, 4].includes(hours)) suffix = 'часа'
 */
 
+/*
+  Дубль DWA
+  
+  Ты забываешь, что ты делаешь return, а ожидаешь что-то в консоли
+  
+  
+  function getTimeFromMinutes(time) {
+    const result = "( • )( • )"
+  
+    if (typeof time !== "number" || time < 0 || !Number.isInteger(time)) {
+      // Тут ты просто возвращаешь значение, но не выводишь ешго (!!!)
+      return "Ошибка, проверьте данные";
+    }
+    
+    console.log(result)
+    return result
+  }
+  
+  Example:
+  
+  // В это случае в a_1 будет лежать "Ошибка, проверьте данные"
+  // Но ты же его не выводишь в консоль
+  const a_1 = getTimeFromMinutes(-1)
+  
+  // Тут уже выведет что нужно
+  console.log(a_1)
+  
+  // В это случае в консоль выведутся сиськи из строки 50
+  const a_2 = getTimeFromMinutes(10)
+  
+  // Тут еще раз они в консоле
+  console.log(a_2)
+  
+*/
+
 // НЕ возвращает  "Ошибка, проверьте данные"
 function getTimeFromMinutes(time) {
   if (typeof time !== "number" || time < 0 || !Number.isInteger(time)) {
