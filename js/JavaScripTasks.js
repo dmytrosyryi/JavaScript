@@ -1,94 +1,5 @@
 "use strict";
 
-// 1) Создайте функцию, которая принимает в себя целое число минут и возвращает время в нужном формате строки. (Смотри пример). Обратите внимание на окончание слова "час" - оно меняется в зависимости от цифры. Если вместо аргумента приходит не число, дробное или отрицательное число - функция возвращает строку "Ошибка, проверьте данные"
-
-// Внимание! Давайте пока ограничимся максимум 600ю минутами (10 часов). Так как проверки на большие числа будут раздувать код (33 часа, 31 час, 11 часов и тд). Этого будет достаточно и код будет проверять именно этот промежуток (1 - 10 часов). Но вы можете реализовать и полный скрипт, он тоже должен проходить тесты.
-
-// Пример:
-
-// getTimeFromMinutes(150) => "Это 2 часа и 30 минут"
-
-// getTimeFromMinutes(50) => "Это 0 часов и 50 минут"
-
-// getTimeFromMinutes(0) => "Это 0 часов и 0 минут"
-
-// getTimeFromMinutes(-150) => "Ошибка, проверьте данные"
-
-// Тут так же самое. Если не подходит под условие - сразу возвращая ошибку
-/*
-  if (typeof time !== "number" || time < 0 || !Number.isInteger(time)) {
-    // Сразу верни и все 
-    return "Ошибка, проверьте данные";
-  }
-  
-  Дальше у тебя уже 100% число. Чтобы узнать кол-во часов: 
-  В 1 часе - 60 минут. Т.е. тебе нужно разделить time на 60 и округлить в меньшую сторону.
-  Так у тебя получится полное кол-во часов
-  Для минут - Есть такая штука - узнать отаток от деления: time % 60 - это и будут минуты
-  Это ты уже проходил (https://learn.javascript.ru/operators)
-  Ну и час/часов - там можно заморочиться чтобы было красиво, но ты просто забей
-  
-  let suffix = 'часов';
-  if (hours === 1) suffix = 'час'
-  if ([2, 3, 4].includes(hours)) suffix = 'часа'
-*/
-
-/*
-  Дубль DWA
-  
-  Ты забываешь, что ты делаешь return, а ожидаешь что-то в консоли
-  
-  
-  function getTimeFromMinutes(time) {
-    const result = "( • )( • )"
-  
-    if (typeof time !== "number" || time < 0 || !Number.isInteger(time)) {
-      // Тут ты просто возвращаешь значение, но не выводишь ешго (!!!)
-      return "Ошибка, проверьте данные";
-    }
-    
-    console.log(result)
-    return result
-  }
-  
-  Example:
-  
-  // В это случае в a_1 будет лежать "Ошибка, проверьте данные"
-  // Но ты же его не выводишь в консоль
-  const a_1 = getTimeFromMinutes(-1)
-  
-  // Тут уже выведет что нужно
-  console.log(a_1)
-  
-  // В это случае в консоль выведутся сиськи из строки 50
-  const a_2 = getTimeFromMinutes(10)
-  
-  // Тут еще раз они в консоле
-  console.log(a_2)
-  
-*/
-
-// НЕ возвращает  "Ошибка, проверьте данные"
-function getTimeFromMinutes(time) {
-  if (typeof time !== "number" || time < 0 || !Number.isInteger(time)) {
-    return "Ошибка, проверьте данные";
-  }
-
-  let hours = Math.floor(time / 60);
-  let minutes = time % 60;
-  let suffix = "часов";
-  if (hours === 1) {
-    suffix = "час";
-  }
-  if ([2, 3, 4].includes(hours)) {
-    suffix = "часа";
-  }
-  let str = `Это ${hours} ${suffix} и ${minutes} минут`;
-  console.log(str);
-  return str;
-}
-getTimeFromMinutes(-1);
-
 // Задача:
 
 // У вас есть список учеников, которые хотят поиграть в игру:
@@ -139,4 +50,69 @@ const students = [
   "Sam",
 ];
 
-function sortStudentsByGroups(arr) {}
+function sortStudentsByGroups(arr) {
+  arr.sort();
+  const teamA = [],
+    teamB = [],
+    teamC = [],
+    str = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (i < 3) {
+      teamA.push(arr[i]);
+    }
+    // Тут я пробовал сделать так
+    // if (arr.length < 3)
+    //    (arr.length === 3)  {
+    // а тут долго тупил потому что прописал
+    //   teamA.push(arr.i);
+    //
+    //
+    // и решил сделать через .forEach
+
+    // }
+  }
+  console.log(teamA);
+  return arr;
+}
+
+sortStudentsByGroups(students);
+
+const students = [
+  "Peter",
+  "Andrew",
+  "Ann",
+  "Mark",
+  "Josh",
+  "Sandra",
+  "Cris",
+  "Bernard",
+  "Takesi",
+  "Sam",
+];
+
+function sortStudentsByGroups(arr) {
+  arr.sort();
+  const teamA = [],
+    teamB = [],
+    teamC = [],
+    str = [];
+  arr.forEach((item, i) => {
+    // if (i < 3) {
+    //   teamA.push(arr[item]);
+    // }
+    // я сначало пробовал сделать так но вылезал [ undefined, undefined, undefined ]
+    // но item это "Peter" а i номерной порядок????
+    if (i < 3) {
+      teamA.push(arr[i]);
+    } else if (i < 6) {
+      teamB.push(arr[i]);
+    } else if (i < 9) {
+      teamC.push(arr[i]);
+    } else {
+      str.push(arr[i]);
+    }
+  });
+  console.log([teamA, teamB, teamC, `Оставшиеся студенты ${str}`]);
+  return teamA, teamB, teamC, `Оставшиеся студенты ${str}`;
+}
+sortStudentsByGroups(students);
