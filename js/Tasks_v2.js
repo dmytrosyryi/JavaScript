@@ -54,7 +54,7 @@ const newStudents = [
 
 function sortStudentsByGroups(arr) {
   let studentSort = [];
-  studentSort = arr.sort();
+  studentSort = [...arr].sort();
   let result = [];
   for (let i = 0; i < studentSort.length; i++) {
     result.push(studentSort.splice(0, 3));
